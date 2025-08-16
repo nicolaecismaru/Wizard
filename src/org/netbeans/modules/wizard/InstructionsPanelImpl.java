@@ -166,7 +166,7 @@ public class InstructionsPanelImpl extends JComponent implements WizardObserver,
             g.drawImage(image, x, y, w, h, this);
         } else {
             Color c = g.getColor();
-            g.setColor (Color.WHITE);
+            g.setColor(UIManager.getColor("text"));
             g.fillRect (x, y, w, h);
             g.setColor (c);
         }
