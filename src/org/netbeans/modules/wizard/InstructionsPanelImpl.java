@@ -15,16 +15,7 @@ enclosed by brackets [] replaced by your own identifying information:
  */
 
 package org.netbeans.modules.wizard;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.IllegalComponentStateException;
-import java.awt.Insets;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -184,6 +175,10 @@ public class InstructionsPanelImpl extends JComponent implements WizardObserver,
     String[] steps = new String[0];
     public final void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
+
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
         Font f = getFont() != null ? getFont() : UIManager.getFont("controlFont"); //NOI18N
         FontMetrics fm = g.getFontMetrics (f);
         Insets ins = getInsets();
