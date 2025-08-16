@@ -27,7 +27,6 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.KeyboardFocusManager;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -364,13 +363,7 @@ public class WizardDisplayerImpl extends WizardDisplayer
             }
         });
 
-        Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
-        if (bounds == null) {
-            // XXX get screen insets?
-            int x = (d.width - dlg.getWidth()) / 2;
-            int y = (d.height - dlg.getHeight()) / 2;
-            dlg.setLocation(x, y);
-        }
+        dlg.setLocationRelativeTo(dlg.getParent());
 
         dlg.setModal(true);
         dlg.getRootPane().setDefaultButton(buttonManager.getNext());
