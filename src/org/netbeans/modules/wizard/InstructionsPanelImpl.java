@@ -161,15 +161,17 @@ public class InstructionsPanelImpl extends JComponent implements WizardObserver,
      * @param h The height of the area that should contain the image
      */
     protected void paintImage(Graphics2D g, int x, int y, int w, int h) {
+        Color c = g.getColor();
+
+        g.setColor(UIManager.getColor("text"));
+        g.fillRect (x, y, w, h);
+
         BufferedImage image = getImage();
         if (image != null) {
             g.drawImage(image, x, y, w, h, this);
-        } else {
-            Color c = g.getColor();
-            g.setColor(UIManager.getColor("text"));
-            g.fillRect (x, y, w, h);
-            g.setColor (c);
         }
+
+        g.setColor (c);
     }
     
     String[] steps = new String[0];
