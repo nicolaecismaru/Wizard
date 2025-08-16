@@ -871,11 +871,11 @@ public class WizardPage extends JPanel implements WizardPanel {
     /**
      * WizardPanelProvider that takes an array of already created WizardPages
      */
-    static final class WPP extends WizardPanelProvider {
+    static public final class WPP extends WizardPanelProvider {
         private final WizardPage[] pages;
         private final WizardResultProducer finish;
 
-        WPP(WizardPage[] pages, WizardResultProducer finish) {
+        public WPP(WizardPage[] pages, WizardResultProducer finish) {
             super(Util.getSteps(pages), Util.getDescriptions(pages));
 
             //Fail-fast validation - don't wait until something goes wrong
@@ -896,7 +896,7 @@ public class WizardPage extends JPanel implements WizardPanel {
             this.finish = finish;
         }
 
-        WPP(String title, WizardPage[] pages, WizardResultProducer finish) {
+        public WPP(String title, WizardPage[] pages, WizardResultProducer finish) {
             super(title, Util.getSteps(pages), Util.getDescriptions(pages));
 
             //Fail-fast validation - don't wait until something goes wrong
